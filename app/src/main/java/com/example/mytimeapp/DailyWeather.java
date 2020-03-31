@@ -2,7 +2,7 @@ package com.example.mytimeapp;
 
 import android.graphics.drawable.Drawable;
 
-class DailyWeather {
+public  class DailyWeather {
 
     String city;
     String date;

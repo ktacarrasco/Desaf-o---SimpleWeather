@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background_gradient"
-                     tools:context=".MainActivity">
-        <data>
-            <variable
-                android:name="tiempo"
-                android:type="com.example.mytimeapp.DailyWeather" />
-        </data>
+    <data>
+        <variable
+            name="time"
+            type="com.example.mytimeapp.DailyWeather" />
+    </data>
 
-            <TextView
-                android:id="@+id/city"
-                style="@style/Header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Santiago"
-                app:layout_constraintBottom_toBottomOf="@id/date"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient"
+        tools:context=".MainActivity">
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{tiempo.date}"
-                style="@style/SubHeader"
-                app:layout_constraintBottom_toTopOf="@id/weather_image"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/city" />
+        <TextView
+            android:id="@+id/city"
+            style="@style/Header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{time.city}"
+            app:layout_constraintBottom_toBottomOf="@id/date"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/weather_image"
-                android:layout_width="155dp"
-                android:layout_height="155dp"
-                android:padding="20dp"
-                android:src="@drawable/ic_wb_sunny_black_24dp"
-                app:layout_constraintBottom_toTopOf="@id/temperature"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/date"
-                />
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{time.date}"
+            style="@style/SubHeader"
+            app:layout_constraintBottom_toTopOf="@id/weather_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city" />
 
-            <TextView
-                android:id="@+id/temperature"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@drawable/ic_sky_cloud"
-                style="@style/SubHeader"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="@id/degrees"
-                app:layout_constraintTop_toBottomOf="@id/weather_image" />
+        <ImageView
+            android:id="@+id/weather_image"
+            android:layout_width="155dp"
+            android:layout_height="155dp"
+            android:padding="20dp"
+            android:src="@{time.weatherImage}"
+            app:layout_constraintBottom_toTopOf="@id/temperature"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date"
+            />
 
-            <TextView
-                android:id="@+id/degrees"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@drawable/ic_sky_cloud"
-                style="@style/SubHeader"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="@id/temperature"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/weather_image" />
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{time.temperature}"
+            style="@style/SubHeader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="@id/degrees"
+            app:layout_constraintTop_toBottomOf="@id/weather_image" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/degrees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{time.degrees}"
+            style="@style/SubHeader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/temperature"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weather_image" />
 
+        <Button
+            android:id="@+id/tomorrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mañana"
+            android:background="@color/colorGradientCenter"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="667dp"
+            tools:ignore="MissingConstraints" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
